@@ -177,6 +177,24 @@
         </div>
     </div>
 
+    <!-- CUSTOM MODAL: VERIFIKASI PASSWORD RESET AKTIVITAS (RESET SEMUA) -->
+    <div id="reset-password-modal" class="fixed inset-0 z-[999] hidden flex-col items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl max-w-sm w-full p-6 text-center transform transition-transform duration-300 scale-95" id="reset-password-box">
+            <div class="w-16 h-16 bg-red-500/10 text-red-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 border border-red-500/20">
+                <i class="fas fa-undo"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Konfirmasi Reset Semua</h3>
+            <p class="text-slate-400 mb-6 text-xs leading-relaxed">Masukkan kata sandi administrator untuk mengosongkan seluruh data aktivitas live siswa.</p>
+            <div class="mb-6">
+                <input type="password" id="reset-password-input" class="w-full p-3.5 rounded-xl bg-slate-800 text-white border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none text-center font-bold tracking-widest text-lg" placeholder="••••••••">
+            </div>
+            <div class="flex gap-3 justify-center">
+                <button onclick="hideResetPasswordModal()" class="flex-1 bg-slate-800 hover:bg-slate-750 text-slate-300 font-semibold py-3 rounded-xl transition active:scale-95">Batal</button>
+                <button onclick="submitResetPassword()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-red-500/30 active:scale-95">Verifikasi</button>
+            </div>
+        </div>
+    </div>
+
     <!-- OVERLAY PERINGATAN (Anti-Cheat) -->
     <div id="warning-overlay" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-red-600 text-white p-6 text-center">
         <i class="fas fa-exclamation-triangle text-7xl mb-4"></i>
@@ -223,7 +241,7 @@
             
             <!-- Logo Imgur (Hanya Logo Bersih dengan Efek Drop Shadow Putih) -->
             <div class="mb-6 flex justify-center">
-                <img src="https://i.imgur.com/7RAzred.png" referrerpolicy="no-referrer" alt="SPECTRA EXAM Logo" class="w-24 h-24 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]" onerror="this.onerror=null; this.style.display='none';">
+                <img src="https://i.imgur.com/7RAzred.png" referrerpolicy="no-referrer" alt="SPECTRA EXAM Logo" class="w-24 h-24 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]" onerror="this.style.display='none';">
             </div>
             
             <h1 class="text-3xl font-black mb-1 text-white tracking-widest uppercase">SPECTRA EXAM</h1>
@@ -266,6 +284,25 @@
                     </div>
                     <i class="fas fa-chevron-right text-sm text-slate-500 group-hover:translate-x-1 transition-transform"></i>
                 </button>
+            </div>
+
+            <!-- Bagian Kredit & Sosial Media di Tengah Bawah tepat di bawah tombol Dasbor Pengawas (Menggunakan Font Arial) -->
+            <div class="mt-8 flex flex-col items-center gap-3 border-t border-slate-800/60 pt-6">
+                <p class="text-slate-400 text-xs font-semibold tracking-widest uppercase" style="font-family: Arial, sans-serif;">Karya : Noviyalpg Creative</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/noviya.lpg/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-pink-100 hover:text-pink-600 transition-all border border-slate-200 shadow-sm">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@noviyalpg?_t=ZS-8tafgg6Eeyl&amp;_r=1" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-blue-500 transition-all border border-slate-200 shadow-sm">
+                        <i class="fab fa-tiktok text-base"></i>
+                    </a>
+                    <a href="https://www.facebook.com/noviyalpg/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-indigo-100 hover:text-indigo-600 transition-all border border-slate-200 shadow-sm">
+                        <i class="fab fa-facebook-f text-base"></i>
+                    </a>
+                    <a href="https://s.id/youtube-noviyalpg" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-red-100 hover:text-red-600 transition-all border border-slate-200 shadow-sm">
+                        <i class="fab fa-youtube text-lg"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -433,7 +470,7 @@
             <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start exam-header-info">
                 <div class="flex items-center gap-2">
                     <div class="w-8 h-8 flex items-center justify-center overflow-hidden flex-shrink-0 bg-slate-800 rounded-full p-1 border border-slate-700">
-                        <img src="https://i.imgur.com/7RAzred.png" referrerpolicy="no-referrer" alt="SPECTRA" class="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(255,255,255,0.7)]" onerror="this.onerror=null; this.outerHTML='<i class=\"fas fa-user-shield text-slate-300 text-sm\"></i>';">
+                        <img src="https://i.imgur.com/7RAzred.png" referrerpolicy="no-referrer" alt="SPECTRA" class="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(255,255,255,0.7)]" onerror="this.style.display='none';">
                     </div>
                     <div class="text-left">
                         <!-- Teks nama diperpendek secara dinamis di layar sangat sempit -->
@@ -451,6 +488,14 @@
                     <div id="display-violations" class="font-bold text-red-500 text-sm sm:text-base"><i class="fas fa-triangle-exclamation text-xs mr-1"></i>0 / 3</div>
                 </div>
                 
+                <div class="h-8 w-px bg-slate-800 stat-divider"></div>
+                
+                <!-- Jam WIB Otomatis -->
+                <div class="text-center md:text-right flex-1 md:flex-initial">
+                    <div class="text-[9px] sm:text-xs text-slate-400 uppercase font-bold tracking-wider">Jam WIB</div>
+                    <div id="wib-clock" class="font-bold text-sm sm:text-base font-mono text-blue-400">00:00:00 WIB</div>
+                </div>
+
                 <div class="h-8 w-px bg-slate-800 stat-divider"></div>
                 
                 <div class="text-center md:text-right flex-1 md:flex-initial">
@@ -491,7 +536,7 @@
             <div class="flex items-center gap-3">
                 <!-- Logo Guru Transparan murni dengan No-referrer (Disesuaikan dengan halaman depan) -->
                 <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
-                    <img src="https://i.imgur.com/7RAzred.png" referrerpolicy="no-referrer" alt="SPECTRA" class="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(255,255,255,0.7)]" onerror="this.onerror=null; this.outerHTML='<i class=\"fas fa-chalkboard-teacher text-slate-800 text-xl\"></i>';">
+                    <img src="https://i.imgur.com/7RAzred.png" referrerpolicy="no-referrer" alt="SPECTRA" class="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(255,255,255,0.7)]" onerror="this.style.display='none';">
                 </div>
                 <h1 class="text-xl font-bold">Dasbor Pengawas SPECTRA EXAM</h1>
             </div>
@@ -853,6 +898,12 @@
             syncToBackend(['registeredStudents']); // Tersegmentasi: Kirim khusus database siswa pre-register saja
         }
 
+        // --- FUNGSI NAVIGASI VIEW TAMPILAN ---
+        function switchView(viewId) {
+            document.querySelectorAll('body > div[id^="view-"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById(viewId).classList.remove('hidden');
+        }
+
         // ==========================================
         // --- SINKRONISASI CLOUD LINTAS-PERANGKAT (TERSEGMENTASI) ---
         // ==========================================
@@ -931,9 +982,30 @@
                     const oldComp = localStorage.getItem(COMPLETED_EXAMS_DB_KEY);
                     const oldReg = localStorage.getItem(REGISTERED_STUDENTS_DB_KEY);
 
-                    // Update data lokal HANYA jika data dari backend tersedia dan berbentuk benar
+                    // UPDATE DATABASE SISWA DENGAN PROTEKSI DATA MANDIRI (Mencegah Race Condition)
                     if(result.data.students && typeof result.data.students === 'object') {
-                        const newDBStr = JSON.stringify(result.data.students);
+                        const cloudStudents = result.data.students;
+                        const localDB = getDB();
+                        
+                        // Jika ini adalah browser siswa, lindungi data diri sendiri dari overwriting data usang cloud
+                        if (currentStudentId && localDB[currentStudentId]) {
+                            const localSelf = localDB[currentStudentId];
+                            const cloudSelf = cloudStudents[currentStudentId];
+                            
+                            if (cloudSelf) {
+                                // Jika status di cloud adalah instruksi penguncian/force submit dari pengawas, terima!
+                                if (cloudSelf.status === 'Dikunci (Force)' || cloudSelf.status === 'Dikunci') {
+                                    localSelf.status = cloudSelf.status;
+                                    localDB[currentStudentId].status = cloudSelf.status;
+                                    localStorage.setItem(DB_KEY, JSON.stringify(localDB));
+                                } else {
+                                    // Selain instruksi blokir pengawas, amankan data lokal (Sisa waktu & Status aktif) agar tidak ditimpa usang
+                                    cloudStudents[currentStudentId] = localSelf;
+                                }
+                            }
+                        }
+
+                        const newDBStr = JSON.stringify(cloudStudents);
                         if (newDBStr !== oldDB) {
                             localStorage.setItem(DB_KEY, newDBStr);
                             updatedDB = true;
@@ -1384,6 +1456,60 @@
         }
 
         // ==========================================
+        // --- MODAL PASSWORD RESET SEMUA ---
+        // ==========================================
+        function showResetPasswordModal() {
+            const modal = document.getElementById('reset-password-modal');
+            const box = document.getElementById('reset-password-box');
+            const input = document.getElementById('reset-password-input');
+            
+            input.value = ''; // Reset
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            box.classList.remove('scale-95');
+            box.classList.add('scale-100');
+            input.focus();
+            
+            input.onkeydown = function(e) {
+                if (e.key === 'Enter') {
+                    submitResetPassword();
+                }
+            };
+        }
+
+        // Sembunyikan modal reset password
+        function hideResetPasswordModal() {
+            const modal = document.getElementById('reset-password-modal');
+            const box = document.getElementById('reset-password-box');
+            modal.classList.add('opacity-0');
+            box.classList.remove('scale-100');
+            box.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        function submitResetPassword() {
+            const passwordInput = document.getElementById('reset-password-input');
+            // Validasi kata sandi " admin1 " dengan spasi di awal dan akhir
+            if (passwordInput.value === ' admin1 ') {
+                hideResetPasswordModal();
+                showCustomConfirm("Reset Semua Data", "Hapus semua data aktivitas dan RIWAYAT ujian siswa? (Ini akan mengizinkan SEMUA siswa mengerjakan ulang)", () => {
+                    localStorage.removeItem(DB_KEY);
+                    localStorage.removeItem(COMPLETED_EXAMS_DB_KEY);
+                    syncToBackend(['students', 'completedExams']);
+                    renderTeacherDashboard();
+                    showCustomAlert("Berhasil", "Semua data aktivitas dan riwayat ujian berhasil direset.", "success");
+                });
+            } else {
+                showCustomAlert("Akses Ditolak", "Kata sandi administrator salah. Gagal melakukan reset.", "error");
+            }
+        }
+
+        // ==========================================
         // 4. CORE LOGIC (Scanner, Check, AntiCheat)
         // ==========================================
 
@@ -1408,11 +1534,6 @@
             } else {
                 if(callback) callback();
             }
-        }
-
-        function switchView(viewId) {
-            document.querySelectorAll('body > div[id^="view-"]').forEach(el => el.classList.add('hidden'));
-            document.getElementById(viewId).classList.remove('hidden');
         }
 
         // --- SISTEM PEMILIHAN TINGKAT KELAS ---
@@ -1483,6 +1604,7 @@
         function loadActiveSubjectsForStudent() {
             const db = getSubjectsDB();
             const select = document.getElementById('student-subject-select');
+            if (!select) return;
             select.innerHTML = '<option value="">-- Pilih Mata Pelajaran --</option>';
             
             let hasActive = false;
@@ -1628,7 +1750,7 @@
             document.getElementById('display-student-name').innerText = `${currentStudentName} (${currentStudentClass})`;
             document.getElementById('exam-iframe').src = examUrl;
             
-            updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Menunggu', violations, "Kembali login, bersiap melanjutkan ujian.", currentExamUrl, currentSubjectName, 0, examTimer);
+            updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Menunggu', violations, "Memasuki ruang ujian (Cek Sistem)...", currentExamUrl, currentSubjectName, 0, examTimer);
             
             switchView('view-system-check');
             runSystemCheck();
@@ -1658,7 +1780,7 @@
                         const btn = document.getElementById('btn-start-exam');
                         btn.disabled = false;
                         btn.classList.remove('opacity-50', 'cursor-not-allowed');
-                        updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Siap Ujian', violations, "", currentExamUrl);
+                        updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Menunggu', violations, "Sistem aman. Menunggu siswa klik Mulai Ujian.", currentExamUrl);
                     }
                 }, 800 * (index + 1));
             });
@@ -1670,6 +1792,7 @@
 
             switchView('view-exam');
             isExamActive = true;
+            history.pushState({examActive: true}, ""); // Mencegah tombol kembali (back button)
             document.getElementById('display-violations').innerText = `${violations} / 3`;
             
             // Dapatkan durasi ujian mapel terpilih
@@ -1694,7 +1817,7 @@
             startTimer(durationInSeconds);
             setupAntiCheat();
             
-            updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Sedang Ujian', violations, "Ujian dilanjutkan kembali.", currentExamUrl, currentSubjectName, 0, durationInSeconds);
+            updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Sedang Ujian', violations, "Siswa masuk dan mulai mengerjakan ujian.", currentExamUrl, currentSubjectName, 0, durationInSeconds);
         }
 
         // Timer pengerjaan
@@ -1775,7 +1898,7 @@
                 
                 exitFullScreenSafe();
                 
-                updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Selesai', violations, "", currentExamUrl);
+                updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Selesai', violations, "Siswa menyelesaikan ujian secara mandiri.", currentExamUrl);
                 showCustomAlert("Berhasil", "Ujian berhasil disubmit.", "success");
                 switchView('view-role');
             });
@@ -1790,6 +1913,8 @@
             document.addEventListener("copy", preventDefaultAction);
             document.addEventListener("paste", preventDefaultAction);
             document.addEventListener("keydown", handleKeydown);
+            window.addEventListener("beforeunload", handleBeforeUnload);
+            window.addEventListener("popstate", handleBackButton);
         }
 
         // Remove anti-cheat
@@ -1801,6 +1926,52 @@
             document.removeEventListener("copy", preventDefaultAction);
             document.removeEventListener("paste", preventDefaultAction);
             document.removeEventListener("keydown", handleKeydown);
+            window.removeEventListener("beforeunload", handleBeforeUnload);
+            window.removeEventListener("popstate", handleBackButton);
+        }
+
+        function handleBeforeUnload(e) {
+            if (isExamActive) {
+                e.preventDefault();
+                e.returnValue = 'Yakin ingin keluar? Ujian sedang berlangsung dan akan dianggap sebagai pelanggaran.';
+                return e.returnValue;
+            }
+        }
+
+        function handleBackButton(e) {
+            if (isExamActive) {
+                history.pushState({examActive: true}, ""); // Kunci kembali URL
+                showCustomConfirm(
+                    "Peringatan Keluar", 
+                    "Anda yakin ingin keluar dari layar ujian?\n\nPERINGATAN: Memaksa keluar sekarang akan langsung dicatat sebagai PELANGGARAN ujian!", 
+                    () => {
+                        // Jika siswa mengonfirmasi 'Ya'
+                        isExamActive = false;
+                        clearInterval(timerInterval);
+                        removeAntiCheat();
+                        exitFullScreenSafe();
+                        
+                        violations++;
+                        document.getElementById('display-violations').innerText = `${violations} / 3`;
+                        playAlarm();
+                        speakPeringatan(violations);
+
+                        if (violations >= 3) {
+                            document.getElementById('locked-overlay').classList.remove('hidden');
+                            document.getElementById('locked-overlay').classList.add('flex');
+                            if (currentExamUrl) {
+                                markExamCompleted(currentStudentName, currentStudentClass, currentExamUrl);
+                            }
+                            updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Dikunci', violations, "Maksimal pelanggaran tercapai (Sengaja Keluar).", currentExamUrl);
+                        } else {
+                            const pendingUntil = Date.now() + 60000;
+                            updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Pending', violations, "Sengaja keluar aplikasi (Tombol Kembali).", currentExamUrl, currentSubjectName, pendingUntil, examTimer);
+                            showCustomAlert("Peringatan", "ANDA KELUAR DARI APLIKASI UJIAN!\n\nStatus Anda sekarang PENDING. Anda dihukum harus menunggu 1 menit sebelum bisa masuk kembali.", "error");
+                            switchView('view-role');
+                        }
+                    }
+                );
+            }
         }
 
         function preventDefaultAction(e) {
@@ -1809,6 +1980,7 @@
             triggerViolation("Mencoba menggunakan fitur terlarang (Klik Kanan/Copy/Paste).");
         }
 
+        // Antrian pintasan kibor terlarang
         function handleKeydown(e) {
             if(!isExamActive) return;
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && (e.key === 'c' || e.key === 'v'))) {
@@ -1896,7 +2068,7 @@
             overlay.classList.remove('flex');
             
             if(isExamActive) {
-               updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Sedang Ujian', violations, "", currentExamUrl);
+               updateStudentStatus(currentStudentId, currentStudentName, currentStudentClass, 'Sedang Ujian', violations, "Kembali ke ujian setelah peringatan.", currentExamUrl);
             }
         }
 
@@ -1957,12 +2129,8 @@
         }
 
         function clearAllData() {
-            showCustomConfirm("Reset Semua Data", "Hapus semua data aktivitas dan RIWAYAT ujian siswa? (Ini akan mengizinkan SEMUA siswa mengerjakan ulang)", () => {
-                localStorage.removeItem(DB_KEY);
-                localStorage.removeItem(COMPLETED_EXAMS_DB_KEY);
-                syncToBackend(['students', 'completedExams']);
-                renderTeacherDashboard();
-            });
+            // Pembaruan: Panggil modal verifikasi sandi khusus dengan input konfirmasi administrator sebelum menghapus semua data aktivitas
+            showResetPasswordModal();
         }
 
         // Reset data akses ujian murid
@@ -2014,7 +2182,7 @@
         }
 
         // ==========================================
-        // 5. TEACHER DASHBOARD LOGIC
+        // 5. TEACHBOARD PANEL
         // ==========================================
 
         function downloadTemplateCSV() {
@@ -2225,6 +2393,23 @@
             renderTeacherDashboard();
         }
 
+        // Fungsi pembantu Waktu WIB Otomatis di halaman ujian lokal
+        function updateWibClock() {
+            const now = new Date();
+            // Konversi ke WIB (GMT+7)
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const wibTime = new Date(utc + (3600000 * 7));
+            
+            const hrs = String(wibTime.getHours()).padStart(2, '0');
+            const mins = String(wibTime.getMinutes()).padStart(2, '0');
+            const secs = String(wibTime.getSeconds()).padStart(2, '0');
+            
+            const clockEl = document.getElementById('wib-clock');
+            if (clockEl) {
+                clockEl.innerText = `${hrs}:${mins}:${secs} WIB`;
+            }
+        }
+
         // Listener memori
         window.addEventListener('storage', (e) => {
             if(e.key === DB_KEY || e.key === null || e.key === undefined || e.key === SUBJECTS_DB_KEY || e.key === COMPLETED_EXAMS_DB_KEY || e.key === REGISTERED_STUDENTS_DB_KEY) {
@@ -2299,6 +2484,8 @@
                 
                 if (std.status === 'Sedang Ujian') {
                     statusBadge = `<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold"><i class="fas fa-circle text-[8px] mr-1 animate-pulse"></i> ... Sedang Ujian</span>`;
+                } else if (std.status === 'Menunggu' || std.status === 'Siap Ujian') {
+                    statusBadge = `<span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold"><i class="fas fa-spinner fa-spin mr-1"></i> Menunggu</span>`;
                 } else if (std.status === 'Melanggar') {
                     statusBadge = `<span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold"><i class="fas fa-exclamation-triangle mr-1"></i> Melanggar</span>`;
                     rowClass = 'bg-yellow-50 border-b border-yellow-100';
@@ -2427,7 +2614,7 @@
                 input.value = '';
                 durationInput.value = 90;
                 toggle.checked = false;
-                qrImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII+";
+                qrImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=";
                 document.getElementById('qr-subject-label').innerText = "Pilih Mapel";
                 
                 const badge = document.getElementById('qr-status-badge');
@@ -2490,34 +2677,7 @@
         // 6. INITIALIZATION & FULLSCREEN
         // ==========================================
         
-        function toggleFullScreen() {
-            try {
-                if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
-                    let promise;
-                    if (document.documentElement.requestFullscreen) {
-                        promise = document.documentElement.requestFullscreen();
-                    } else if (document.documentElement.webkitRequestFullscreen) {
-                        promise = document.documentElement.webkitRequestFullscreen();
-                    } else if (document.documentElement.mozRequestFullScreen) {
-                        promise = document.documentElement.mozRequestFullScreen();
-                    } else if (document.documentElement.msRequestFullscreen) {
-                        promise = document.documentElement.msRequestFullscreen();
-                    }
-                    
-                    if (promise && promise.catch) {
-                        promise.catch(err => {
-                            console.warn("Fullscreen diblokir oleh browser (izin iframe):", err);
-                            showCustomAlert("Informasi", "Fitur Layar Penuh diblokir pada tampilan preview saat ini.", "info");
-                        });
-                    }
-                } else {
-                    exitFullScreenSafe();
-                }
-            } catch (err) {
-                console.warn("Fullscreen toggle logic error:", err);
-            }
-        }
-
+        // Memaksa keluar fullscreen secara aman
         function exitFullScreenSafe() {
             try {
                 if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
@@ -2577,7 +2737,7 @@
                 document.getElementById('offline-overlay').classList.add('flex');
             });
 
-            // --- DETEKSI & MIGRASI DATA LAMA (Mencegah Kehilangan Data Siswa) ---
+            // --- DETEKSI & MIGRASI DATA LAMA ---
             try {
                 const keyMigrations = {
                     'excambro_students_db': 'spectra_students_db',
@@ -2601,6 +2761,10 @@
 
             fetchFromBackend();
             switchView('view-role');
+
+            // Jalankan jam WIB real-time sejak halaman dimuat
+            updateWibClock();
+            setInterval(updateWibClock, 1000);
 
             // --- SISTEM INTERVAL POLLING CLOUD (Setiap 5 Detik) ---
             setInterval(() => {
